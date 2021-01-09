@@ -2,6 +2,13 @@
 #limpado o terminal:
 clear
 
+echo ""
+echo "========================================================================"
+echo "	Instalador automatico do Madagascar criado por WILLIAM SMITH em 09/01/2020 "
+echo "  ATUALIZADO EM 09/01/2021 "
+echo "========================================================================" 
+echo ""
+
 #iniciando a instalacao:
 echo ""
 echo "========================================================================"
@@ -72,6 +79,8 @@ sudo apt-get autoclean -y
 #pacotes necessarios para instalacao:
 sudo apt-get install libxaw7-dev freeglut3-dev libnetpbm10-dev libgd-dev libplplot-dev libavcodec-dev libcairo2-dev libjpeg-dev swig python-numpy g++ gfortran libopenmpi-dev libfftw3-dev libsuitesparse-dev scons git -y
 
+sudo apt-get install libxaw7-dev freeglut3-dev libnetpbm10-dev libgd-dev libplplot-dev libavcodec-dev libcairo2-dev libjpeg-dev swig python-numpy g++ gfortran libopenmpi-dev libfftw3-dev libsuitesparse-dev libtirpc-dev git scons -y
+
 # novas dependências adicionadas 08/07/2020
 
 echo ""
@@ -95,7 +104,7 @@ sudo apt install python-dev-is-python${py} -y
 # retirando dependências odsoletas 08/07/2020
 # python-epydoc / emacs25 / python-dev
 
-sudo apt-get install openjdk-8-jdk -y
+sudo apt-get install openjdk-14-jdk -y
 #entrando na pasta:
 echo ""
 echo "========================================================================"
@@ -153,22 +162,23 @@ source .bashrc
 
 echo ""
 echo "========================================================================"
-echo "Verificando se a instalação foi finalizada com sucesso."
+echo "Verificaque se a instalação foi finalizada com sucesso."
 echo "========================================================================"
 echo ""
 
-echo ""
-echo "========================================================================"
-echo "Em 5 segundos deverá aparecer uma imagem do magascar, caso essa imagem apareca então está tudo funcionando."
-echo "========================================================================"
-echo ""
-sleep 5
+#echo ""
+#echo "========================================================================"
+#echo "Em 5 segundos deverá aparecer uma imagem do magascar, caso essa imagem apareca então está tudo funcionando."
+#echo "========================================================================"
+#echo ""
+#sleep 5
 
-sfspike n1=1000 k1=300 | sfbandpass fhi=2 phase=y | sfwiggle clip=0.02 | sfpen
-
+#sfspike n1=1000 k1=300 | sfbandpass fhi=2 phase=y | sfwiggle clip=0.02 | sfpen
 
 echo "========================================================================"
-echo "Caso a imagem não tenha aparecido, copie o comando abaixo, abra outro termial, cole e dê enter."
+echo "Copie o comando abaixo, abra outro termial, cole e dê enter."
 echo "sfspike n1=1000 k1=300 | sfbandpass fhi=2 phase=y | sfwiggle clip=0.02 | sfpen"
+echo "Deverá aparecer uma imagem do magascar, caso essa imagem apareca então está tudo funcionando."
 echo "========================================================================"
 echo ""
+
