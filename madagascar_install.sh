@@ -153,7 +153,7 @@ echo "source "'$RSFROOT'/share/madagascar/etc/env.sh"" >> $HOME/.bashrc
 echo "export TMPDATAPATH=/tmp/" >> $HOME/.bashrc
 echo "export PATH="'$PATH':'$RSFROOT'/bin"" >> $HOME/.bashrc
 echo "#Caminhos para os binários do Madagscar" >> $HOME/.bashrc
-echo "export DATAPATH=$HOME/madagascar.bin" >> $HOME/.bashrc
+echo "export DATAPATH=$HOME/madagascar.bin/" >> $HOME/.bashrc
 
 # testar essa variável do python 2.7
 #echo "export PYTHONPATH=$PYTHONPATH:$HOME/madagascar/lib/python2.7/dist-packages/rsf:$HOME/madagascar/lib/python2.7/distpackages/rsf/recipes" >> $HOME/.bashrc
