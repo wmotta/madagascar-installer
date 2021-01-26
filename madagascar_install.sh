@@ -54,7 +54,8 @@ tar -xzvf madagascar_install.tar.gz -C ${HOME}
 #criando diretorio de instalacao:
 cd ${HOME}
 mkdir madagascar
-mkdir rsfdata
+mkdir madagascar.bin
+
 echo ""
 echo "========================================================================"
 echo "	Criando diretorio de instalacao:"
@@ -141,8 +142,9 @@ echo ""
 
 
 
-export PYTHONPATH=$PYTHONPATH:/home/$USER/madagascar/lib/python2.7/dist-packages/rsf:/home/$USER/madagascar/lib/python2.7/distpackages/rsf/recipes
-export DATAPATH=/home/$USER/rsfdata/
+#export PYTHONPATH=$PYTHONPATH:/home/$USER/madagascar/lib/python2.7/dist-packages/rsf:/home/$USER/madagascar/lib/python2.7/distpackages/rsf/recipes
+#export DATAPATH=/home/$USER/rsfdata/
+
 
 echo "#Caminhos para Madagscar" >> $HOME/.bashrc
 echo "export PATH="'$PATH':$HOME/.matlab/bin"" >> $HOME/.bashrc
@@ -150,7 +152,11 @@ echo "export RSFROOT=$HOME/madagascar" >> $HOME/.bashrc
 echo "source "'$RSFROOT'/share/madagascar/etc/env.sh"" >> $HOME/.bashrc
 echo "export TMPDATAPATH=/tmp/" >> $HOME/.bashrc
 echo "export PATH="'$PATH':'$RSFROOT'/bin"" >> $HOME/.bashrc
+echo "#Caminhos para os binários do Madagscar" >> $HOME/.bashrc
+echo "export DATAPATH=$HOME/madagascar.bin" >> $HOME/.bashrc
 
+# testar essa variável do python 2.7
+#echo "export PYTHONPATH=$PYTHONPATH:$HOME/madagascar/lib/python2.7/dist-packages/rsf:$HOME/madagascar/lib/python2.7/distpackages/rsf/recipes" >> $HOME/.bashrc
 
 cd $HOME
 
