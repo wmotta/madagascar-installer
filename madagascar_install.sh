@@ -141,11 +141,6 @@ echo ""
 #source /home/$USER/madagascar/share/madagascar/etc/env.sh
 
 
-
-#export PYTHONPATH=$PYTHONPATH:/home/$USER/madagascar/lib/python2.7/dist-packages/rsf:/home/$USER/madagascar/lib/python2.7/distpackages/rsf/recipes
-#export DATAPATH=/home/$USER/rsfdata/
-
-
 echo "#Caminhos para Madagscar" >> $HOME/.bashrc
 echo "export PATH="'$PATH':$HOME/.matlab/bin"" >> $HOME/.bashrc
 echo "export RSFROOT=$HOME/madagascar" >> $HOME/.bashrc
@@ -155,8 +150,8 @@ echo "export PATH="'$PATH':'$RSFROOT'/bin"" >> $HOME/.bashrc
 echo "#Caminhos para os binários do Madagscar" >> $HOME/.bashrc
 echo "export DATAPATH=$HOME/madagascar.bin/" >> $HOME/.bashrc
 
-# testar essa variável do python 2.7
-#echo "export PYTHONPATH=$PYTHONPATH:$HOME/madagascar/lib/python2.7/dist-packages/rsf:$HOME/madagascar/lib/python2.7/distpackages/rsf/recipes" >> $HOME/.bashrc
+# Variável dos modulos do python 2.7
+echo "export PYTHONPATH=$PYTHONPATH:$HOME/madagascar/lib/python2.7/dist-packages/rsf:$HOME/madagascar/lib/python2.7/distpackages/rsf/recipes" >> $HOME/.bashrc
 
 cd $HOME
 
