@@ -92,10 +92,10 @@ sudo apt-get install libxaw7-dev freeglut3-dev libnetpbm10-dev libgd-dev libplpl
 # instalaão do pyenv para facilitar o gerenciamento do uso do python e evitar conflitos com versões já existentes no sistema. defivindo o python para o madagascar na versão 3.10.13 o mais atual na data atual 27/10/2023
 curl https://pyenv.run | bash
 
-echo "#Instalação do pyenv" >> $HOME/.bashrc
-echo "export PATH="'$HOME'/.pyenv/bin:'$PATH'"" >> $HOME/.bashrc
-echo "eval "$(pyenv init -)"" >> $HOME/.bashrc
-echo "eval "$(pyenv virtualenv-init -)"" >> $HOME/.bashrc
+echo '#Caminhos para o pyenv' >> $HOME/.bashrc
+echo 'export PATH="$HOME/.pyenv/bin:$PATH"' >> $HOME/.bashrc
+echo 'eval "$(pyenv init -)"' >> $HOME/.bashrc
+echo 'eval "$(pyenv virtualenv-init -)"' >> $HOME/.bashrc
 
 source ~/.bashrc
 
@@ -119,7 +119,7 @@ pyenv install 3.10.13
 #echo "Digite 2 ou 3"
 #read py
 #sudo apt install python-dev-is-python${py} -y
-#sudo apt install python-dev-is-python3 -y
+Sudo apt install python-dev-is-python3 -y
 
 
 # retirando dependências odsoletas 08/07/2020
@@ -140,13 +140,13 @@ cd ${HOME}/madagascar-${name}
 #setando python 3.10.30 no pyenv para ser o python usado na pasta do madagascar
 
 #ativando python 3 no localmente na pasta do madagascar
-echo "3.10.13" > .python-version
+echo '3.10.13' >> .python-version
 pyenv activate 3.10.13
 
 #configurando o madagascar:
 echo ""
 echo "========================================================================"
-echo "	Configurando o madagascar para instalacao:"
+echo "	Configurando o madagascar para instalação:"
 echo "========================================================================"
 echo ""
 sleep 5
@@ -168,17 +168,17 @@ echo ""
 #source /home/$USER/madagascar/share/madagascar/etc/env.sh
 
 
-echo "#Caminhos para Madagscar" >> $HOME/.bashrc
-echo "export PATH="'$PATH':$HOME/.matlab/bin"" >> $HOME/.bashrc
-echo "export RSFROOT=$HOME/madagascar" >> $HOME/.bashrc
-echo "source "'$RSFROOT'/share/madagascar/etc/env.sh"" >> $HOME/.bashrc
-echo "export TMPDATAPATH=/tmp/" >> $HOME/.bashrc
-echo "export PATH="'$PATH':'$RSFROOT'/bin"" >> $HOME/.bashrc
-echo "#Caminhos para os binários do Madagscar" >> $HOME/.bashrc
-echo "export DATAPATH=$HOME/madagascar.bin/" >> $HOME/.bashrc
+echo '#Caminhos para Madagscar' >> $HOME/.bashrc
+echo 'export PATH="$PATH:$HOME/.matlab/bin"' >> $HOME/.bashrc
+echo 'export RSFROOT=$HOME/madagascar' >> $HOME/.bashrc
+echo 'source "$RSFROOT/share/madagascar/etc/env.sh"' >> $HOME/.bashrc
+echo 'export TMPDATAPATH=/tmp/' >> $HOME/.bashrc
+echo 'export PATH="$PATH:$RSFROOT/bin"' >> $HOME/.bashrc
+echo '#Caminhos para os binários do Madagscar' >> $HOME/.bashrc
+echo 'export DATAPATH=$HOME/madagascar.bin/' >> $HOME/.bashrc
 
-# Variável dos modulos do python 2.7
-echo "export PYTHONPATH=$PYTHONPATH:$HOME/madagascar/lib/python2.7/dist-packages/rsf:$HOME/madagascar/lib/python2.7/distpackages/rsf/recipes" >> $HOME/.bashrc
+echo  '#Variável dos modulos do python 3.10.13'
+echo 'export PYTHONPATH=$PYTHONPATH:$HOME:/home/will/madagascar/lib/:$HOME/madagascar/lib/python3.10/site-packages/rsf:$HOME/madagascar/lib/python3.10/site-packages/rsf/recipes' >> $HOME/.bashrc
 
 cd $HOME
 
@@ -201,7 +201,6 @@ echo ""
 #echo ""
 #sleep 5
 
-#sfspike n1=1000 k1=300 | sfbandpass fhi=2 phase=y | sfwiggle clip=0.02 | sfpen
 
 echo "========================================================================"
 echo "Copie o comando abaixo, abra outro termial, cole e dê enter."
@@ -209,7 +208,7 @@ echo "sfspike n1=1000 k1=300 | sfbandpass fhi=2 phase=y | sfwiggle clip=0.02 | s
 echo "Deverá aparecer uma imagem do magascar, caso essa imagem apareça então está tudo funcionando."
 echo "========================================================================"
 echo ""
-
+sfspike n1=1000 k1=300 | sfbandpass fhi=2 phase=y | sfwiggle clip=0.02 title="Bem Vindo ao Madagascar" | sfpen
 echo ""
 echo "========================================================================"
 echo "Lembre-se de periodicamente limpar os arquivos binários presente na pasta madagascar.bin presente na sua home para evitar falta de espaço no seu armazenamento"

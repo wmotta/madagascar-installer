@@ -1,6 +1,11 @@
-Instalador automatico do Madagascar criado por WILLIAM SMITH em 09/01/2020
 
-!!! ATUALIZADO EM 09/01/2021 !!!
+# Instalador automatico do Madagascar criado por WILLIAM SMITH
+
+---
+
+## ATUALIZADO EM OUTUBRO 2023, MADAGASCAR - 4.0
+
+---
 
 Este script foi concebido para instalação automatica do Software Madagascar no sistema operacional Ubuntu e derivados, note que é possível usar-lo em outras distros, porém será necessário que o usuário faça as devidas alterações para tal.
 
@@ -12,7 +17,7 @@ AVISO! o programa verificará a existência do "madagascar_install.tar.gz" e cas
 
 Note que o arquivo base baixado no sourceforge possui o nome da versão, neste caso renomeie-o para madagascar_install.tar.gz
 
-PROSSEGUINDO PARA A INSTALAÇÃO
+### PROSSEGUINDO PARA A INSTALAÇÃO
 
 Primeiramente torne o "madagascar_install.sh" como um arquivo executável habilitando a caixa de diálogo "permitir a execução do arquivo como um programa" nas propriedades ou simplesmente abra um terminal na pasta onde se encontra o instalador e o Madagascar e digite o seguinte comando:
 
