@@ -5,7 +5,7 @@ clear
 echo ""
 echo "========================================================================"
 echo "	Instalador automatico do Madagascar criado por WILLIAM SMITH em 09/01/2020 "
-echo "  ATUALIZADO EM 09/01/2021 "
+echo "  ATUALIZADO Em Outubro 2023 "
 echo "========================================================================" 
 echo ""
 
@@ -39,9 +39,11 @@ if [ -f "madagascar_install.tar.gz" ]; then
 	echo "madagascar_install.tar.gz baixado."
 	sleep 3
 else
-	echo "Erro ao baixar madagascar_install.tar.gz tente novamente."
+	echo "Erro ao baixar madagascar_install.tar.gz."
+	echo "visite https://sourceforge.net/projects/rsf/files/latest/madagascar_install.tar.gz e tente baixar manualmente e coloque o arquivo junto com este programa"
+	echo "ou visite https://www.reproducibility.org/wiki/Download"
 	sleep 3
-	exit
+	exit/
 fi
 #descompactando:
 echo ""
@@ -78,44 +80,69 @@ sudo apt-get install -f
 sudo apt-get autoremove -y
 sudo apt-get autoclean -y
 #pacotes necessarios para instalacao:
-sudo apt-get install libxaw7-dev freeglut3-dev libnetpbm10-dev libgd-dev libplplot-dev libavcodec-dev libcairo2-dev libjpeg-dev swig python-numpy g++ gfortran libopenmpi-dev libfftw3-dev libsuitesparse-dev scons git -y
-
-sudo apt-get install libxaw7-dev freeglut3-dev libnetpbm10-dev libgd-dev libplplot-dev libavcodec-dev libcairo2-dev libjpeg-dev swig python-numpy g++ gfortran libopenmpi-dev libfftw3-dev libsuitesparse-dev libtirpc-dev git scons -y
+#sudo apt-get install libxaw7-dev freeglut3-dev libnetpbm10-dev libgd-dev libplplot-dev libavcodec-dev libcairo2-dev libjpeg-dev swig python-numpy g++ gfortran libopenmpi-dev libfftw3-dev libsuitesparse-dev scons git -y
+sudo apt-get install libxaw7-dev freeglut3-dev libnetpbm10-dev libgd-dev libplplot-dev libavcodec-dev libcairo2-dev libjpeg-dev swig python-numpy g++ gfortran libopenmpi-dev libfftw3-dev libsuitesparse-dev libtirpc-dev scons git -y
 
 # novas dependências adicionadas 08/07/2020
 
-echo ""
-echo "========================================================================"
-echo "Aqui você irá escolher qual versão do python será instalado, é importante que caso você tenha o Anaconda instalado siga o mesmo python que há nele. Escolha entre Python 2 e Python 3"
-echo "========================================================================"
-echo ""
-sleep 3
+#Instalando python3
+#sudo apt install python-dev-is-python3 -y
 
-echo ""
-echo "========================================================================"
-echo "ATENÇÃO! se você colocar qualquer valor diferende de 2 ou 3 vai dar ruim, não tenho paciência pra ficar criando if pra barrar isso. Ecolha com sabedoria."
-echo "========================================================================"
-echo ""
-sleep 5
 
-echo "Digite 2 ou 3"
-read py
-sudo apt install python-dev-is-python${py} -y
+# instalaão do pyenv para facilitar o gerenciamento do uso do python e evitar conflitos com versões já existentes no sistema. defivindo o python para o madagascar na versão 3.10.13 o mais atual na data atual 27/10/2023
+curl https://pyenv.run | bash
+
+echo "#Instalação do pyenv" >> $HOME/.bashrc
+echo "export PATH="'$HOME'/.pyenv/bin:'$PATH'"" >> $HOME/.bashrc
+echo "eval "$(pyenv init -)"" >> $HOME/.bashrc
+echo "eval "$(pyenv virtualenv-init -)"" >> $HOME/.bashrc
+
+source ~/.bashrc
+
+pyenv install 3.10.13
+
+
+# echo ""
+# echo "========================================================================"
+# echo "Aqui você irá escolher qual versão do python será instalado, é importante que caso você tenha o Anaconda instalado siga o mesmo python que há nele. Escolha entre Python 2 e Python 3"
+# echo "========================================================================"
+# echo ""
+# sleep 3
+
+# echo ""
+# echo "========================================================================"
+# echo "ATENÇÃO! se você colocar qualquer valor diferende de 2 ou 3 vai dar ruim, não tenho paciência pra ficar criando if pra barrar isso. Ecolha com sabedoria."
+# echo "========================================================================"
+# echo ""
+# sleep 5
+
+#echo "Digite 2 ou 3"
+#read py
+#sudo apt install python-dev-is-python${py} -y
+#sudo apt install python-dev-is-python3 -y
+
 
 # retirando dependências odsoletas 08/07/2020
 # python-epydoc / emacs25 / python-dev
 
-sudo apt-get install openjdk-14-jdk -y
+sudo apt-get install openjdk-19-jdk -y
 #entrando na pasta:
 echo ""
 echo "========================================================================"
 echo "Digite a versão do Madagascar baixado"
-echo "Você deverá ir na sua pasta home (ou olhar para os arquivos desconpactados acima) e procurar por uma pasta nomeada madagascar-3.0 por exemplo"
-echo "3.0 é o exemplo de versão, digite a numeração que aparecer. na pasta madagascar-"
+echo "Você deverá ir na sua pasta home (ou olhar para os arquivos desconpactados acima) e procurar por uma pasta nomeada madagascar-4.0 por exemplo"
+echo "4.0 é o exemplo de versão, digite a numeração que aparecer. na pasta madagascar-"
 echo "========================================================================"
 echo ""
 read name
 cd ${HOME}/madagascar-${name}
+
+#setando python 3.10.30 no pyenv para ser o python usado na pasta do madagascar
+
+#ativando python 3 no localmente na pasta do madagascar
+echo "3.10.13" > .python-version
+pyenv activate 3.10.13
+
 #configurando o madagascar:
 echo ""
 echo "========================================================================"
@@ -179,7 +206,13 @@ echo ""
 echo "========================================================================"
 echo "Copie o comando abaixo, abra outro termial, cole e dê enter."
 echo "sfspike n1=1000 k1=300 | sfbandpass fhi=2 phase=y | sfwiggle clip=0.02 | sfpen"
-echo "Deverá aparecer uma imagem do magascar, caso essa imagem apareca então está tudo funcionando."
+echo "Deverá aparecer uma imagem do magascar, caso essa imagem apareça então está tudo funcionando."
+echo "========================================================================"
+echo ""
+
+echo ""
+echo "========================================================================"
+echo "Lembre-se de periodicamente limpar os arquivos binários presente na pasta madagascar.bin presente na sua home para evitar falta de espaço no seu armazenamento"
 echo "========================================================================"
 echo ""
 
